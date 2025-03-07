@@ -1,3 +1,4 @@
+#Erica Bournival 2435250
 import random
 import sys
 
@@ -130,18 +131,17 @@ while True:
     n = len(x)
     correct_order = [f'{i} ' for i in range(1, n**2)] + ['  ']  # Correct sequence
     current_order = [x[i][j] for i in range(n) for j in range(n)]
+    move_count += 1
     if correct_order == current_order:
         displayBoard(x)
-        print("Congratulations! You solved the puzzle!")
+        print(f'Congratulations! You solved the puzzle using {move_count -1} moves')
         break  
-    move_count += 1
     if move_count == 32 and e == 3:
         print('Out of moves! Better luck next time!')
         sys.exit()
     elif move_count == 81 and e == 4:
         print('Out of moves! Better luck next time!')
         sys.exit()
-    print(move_count)
     move = nextMove(x)
     makeMove(x, move)
 
